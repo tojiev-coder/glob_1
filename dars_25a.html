@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qora Tuynuklar - Koinot Sirlari</title>
+    <style>
+        /* RESET VA UMUMIY STILLAR */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #050508;
+            color: #e1e3e8;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .wrapper {
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #0d0e15;
+            border: 2px solid #1f2338;
+            border-top: 5px solid #9d4edd;
+            border-bottom: 5px solid #ff007f;
+            border-left: 8px solid #00f0ff;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #00f0ff;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #a0a5c0;
+        }
+
+        /* ANIQ TALAB: 1 TA DIV ICHIDA YARMIDA RASM, YARMIDA TEXT VA TAGIDA 2 TA RASMLI CARD */
+        .hero-container {
+            background-color: #0d0e17;
+            border: 2px solid #1f243b;
+            border-left: 6px solid #ff007f;
+            border-bottom: 4px solid #9d4edd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 35px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Yarmida Rasm */
+        .hero-left-img {
+            flex: 1 1 400px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-left-img img {
+            width: 100%;
+            height: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #9d4edd;
+        }
+
+        /* Yarmida Text va uning ostidagi 2 ta Rasmli Card */
+        .hero-right-content {
+            flex: 1 1 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hero-text-block {
+            margin-bottom: 15px;
+        }
+
+        .hero-text-block h2 {
+            font-size: 24px;
+            color: #ff007f;
+            margin-bottom: 10px;
+        }
+
+        .hero-text-block p {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        /* Textlar tagida 2 ta Rasmli Card */
+        .hero-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .sub-card {
+            background-color: #141624;
+            border: 1px solid #282d4a;
+            border-top: 3px solid #00f0ff;
+            border-left: 3px solid #ff007f;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .sub-card img {
+            width: 100%;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 6px;
+        }
+
+        .sub-card h4 {
+            font-size: 15px;
+            color: #00f0ff;
+            margin-bottom: 4px;
+        }
+
+        .sub-card p {
+            font-size: 12px;
+            color: #b0b5d0;
+        }
+
+        /* UMUMIY BO'LIMLAR */
+        .section-box {
+            background-color: #0d0e17;
+            border: 1px solid #1f243b;
+            border-left: 6px solid #00f0ff;
+            border-bottom: 3px solid #00f0ff;
+            padding: 22px;
+            margin-bottom: 35px;
+            border-radius: 8px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: #00f0ff;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #1f243b;
+            padding-bottom: 6px;
+        }
+
+        /* 3 TA CARDLIK GRIDLAR (2 TA TURLI JOYDA) */
+        .three-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+            margin-top: 15px;
+        }
+
+        .card-item {
+            background-color: #141624;
+            border: 1px solid #282d4a;
+            border-top: 3px solid #9d4edd;
+            border-left: 3px solid #ff007f;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .card-item img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .card-item h3 {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .card-item p {
+            font-size: 13px;
+            color: #a0a5c0;
+        }
+
+        /* JADVALLAR (ROWSPAN VA COLSPAN) */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #10121d;
+            border: 1px solid #242942;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+            border: 1px solid #242942;
+        }
+
+        th {
+            background-color: #181b2c;
+            color: #ff007f;
+            border-bottom: 3px solid #00f0ff;
+            font-size: 15px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #141624;
+        }
+
+        /* RO'YHATLAR */
+        ul,
+        ol {
+            padding-left: 25px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* TEXT TEGLARI STILLARI */
+        mark {
+            background-color: #ff007f;
+            color: #ffffff;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        span.highlight {
+            color: #00f0ff;
+            font-weight: bold;
+        }
+
+        /* 3 TA TURLI JOYDA CSS FIGUR ELEMENTLARI */
+
+        /* Figur 1: Qora Tuynuk va Akkretsion disk (Headerda) */
+        .fig-blackhole {
+            width: 50px;
+            height: 50px;
+            background-color: #000000;
+            border-radius: 50%;
+            margin: 0 auto 12px auto;
+            border: 3px solid #ff007f;
+            box-shadow: 0 0 18px #9d4edd, inset 0 0 10px #00f0ff;
+        }
+
+        /* Figur 2: Romb / Diamond (2-Jadval tepasida) */
+        .fig-diamond {
+            width: 32px;
+            height: 32px;
+            background-color: #9d4edd;
+            margin: 10px auto;
+            transform: rotate(45deg);
+            border: 2px solid #00f0ff;
+            box-shadow: 0 0 12px #ff007f;
+        }
+
+        /* Figur 3: Uchburchak (Ro'yhatlar bo'limida) */
+        .fig-triangle {
+            width: 0;
+            height: 0;
+            border-left: 22px solid transparent;
+            border-right: 22px solid transparent;
+            border-bottom: 38px solid #00f0ff;
+            margin: 12px auto;
+            filter: drop-shadow(0 0 8px #9d4edd);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 18px;
+            background-color: #0d0e15;
+            border-top: 3px solid #ff007f;
+            border-left: 6px solid #00f0ff;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #8085a0;
+        }
+
+        @media (max-width: 600px) {
+            .hero-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- HEADER & FIGUR 1 -->
+        <header>
+            <!-- Figur 1 -->
+            <div class="fig-blackhole"></div>
+            <h1>Qora Tuynuklar (Black Holes)</h1>
+            <p class="subtitle">Koinotdagi <mark>eng kuchli tortishish kuchi</mark> va uning sirlari haqida o'quv
+                sahifasi</p>
+        </header>
+
+            <div style="display: inline-block; border: 1px solid yellow; padding: 10px 20px; border-radius: 8px; margin-bottom: 20px;"><a href="dars_22a.html" target="_blank" style="color: yellow; ">Yulduzlar</a></div>
+            <br>
+
+
+        <!-- 1 TA DIV ICHIDA: YARMIDA RASM, YARMIDA TEXTLAR VA TAGIDA 2 TA RASMLI CARD -->
+        <div class="hero-container">
+
+
+            <!-- Yarmida Rasm -->
+            <div class="hero-left-img">
+                <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=600&auto=format&fit=crop"
+                    alt="Qora Tuynuk">
+            </div>
+
+            <!-- Yarmida Textlar va Tagida 2 ta Rasmli Card -->
+            <div class="hero-right-content">
+
+                <div class="hero-text-block">
+                    <h2>Qora Tuynuk Nima?</h2>
+                    <p>
+                        Qora tuynuk — fazolik shunday bir hududki, undagi <span class="highlight">gravitatsiya
+                            kuchi</span> hatto yorug'lik zarrachalarini ham o'zidan chiqarmaydi.
+                    </p>
+                    <p>
+                        Uning eng tashqi chegarasi <u>"Voqealar ufq"</u> (Event Horizon) deb ataladi. Uning ichiga
+                        tushgan har qanday modda <i>ortga qaytmaydi</i>.
+                    </p>
+                </div>
+
+                <!-- Textlar tagida 2 ta Rasmli Card -->
+                <div class="hero-cards-grid">
+                    <div class="sub-card">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=300&auto=format&fit=crop"
+                            alt="Voqealar Ufqi">
+                        <h4>1. Voqealar Ufqi</h4>
+                        <p>Ortga qaytib bo'lmaydigan <b>gravitatsion chegara</b>.</p>
+                    </div>
+                    <div class="sub-card">
+                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=300&auto=format&fit=crop"
+                            alt="Singulyarlik">
+                        <h4>2. Singulyarlik</h4>
+                        <p>Markaziy nuqta — zichlik <i>cheksizga</i> intiladi.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 1-JOY: 3 TA RASMLI CARD (QORA TUYNUK TURLARI) -->
+        <div class="section-box">
+            <h2 class="section-title">1. Qora Tuynuklarning Asosiy Turlari (3 ta Card - 1-Joy)</h2>
+            <p>Koinotda massasiga ko'ra turlicha shakllanadigan qora tuynuklar mavjud.</p>
+
+            <div class="three-cards-container">
+                <div class="card-item">
+                    <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=400&auto=format&fit=crop"
+                        alt="Yulduzli qora tuynuk">
+                    <h3>Yulduzli Qora Tuynuk</h3>
+                    <p>Uzoq yashagan ulkan yulduzning <u>portlashi (Supernova)</u> natijasida hosil bo'ladi.</p>
+                </div>
+                <div class="card-item">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&auto=format&fit=crop"
+                        alt="O'rta massali">
+                    <h3>O'rta Massali Tuynuk</h3>
+                    <p>Yulduzli va o'ta ulkan tuynuklar orasidagi <mark>kamdan-kam uchraydigan</mark> tur.</p>
+                </div>
+                <div class="card-item">
+                    <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&auto=format&fit=crop"
+                        alt="O'ta Ulkan Tuynuk">
+                    <h3>O'ta Ulkan (Supermassive)</h3>
+                    <p>Galaktikalar markazida joylashgan bo'lib, massasi <span class="highlight">millionlab
+                            Quyoshga</span> teng.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1-TABLE (ROWSPAN VA COLSPAN ISHLATILGAN) -->
+        <div class="section-box">
+            <h2 class="section-title">Qora Tuynuk Turlari Taqqoslanishi (1-Jadval)</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Qora Tuynuk Tasnifi</th>
+                            <th>Massasi (Quyosh massasida)</th>
+                            <th>Hosil bo'lish usuli</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="2"><b>Kichik Turlar</b></td>
+                            <td>Mitti / Boshlang'ich</td>
+                            <td>Plandan kichik</td>
+                            <td>Katta Portlash (Big Bang) davrida</td>
+                        </tr>
+                        <tr>
+                            <td>Yulduzli (Stellar)</td>
+                            <td>3 - 100 baravar</td>
+                            <td>Yulduzlar kollapsi (Supernova)</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2"><b>Ulkan Turlar</b></td>
+                            <td>O'rta Massali</td>
+                            <td>100 - 100,000 baravar</td>
+                            <td>Yulduzlar to'plamining birlashishi</td>
+                        </tr>
+                        <tr>
+                            <td>O'ta Ulkan (Supermassive)</td>
+                            <td><mark>100,000 - Milliardlab</mark></td>
+                            <td>Galaktikalar markaziy kollapsi</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: center; color: #00f0ff;"><b>Eslatma:</b> Barcha turlarda
+                                gravitatsiya kuchi o'ta yuqori.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 2-JOY: 3 TA RASMLI CARD (MASHOUR QORA TUYNUKLAR) -->
+        <div class="section-box">
+            <h2 class="section-title">2. Koinotdagi Mashhur Qora Tuynuklar (3 ta Card - 2-Joy)</h2>
+            <p>Olimlar va astronomlar tomonidan kashf etilgan va surati olingan ob'ektlar.</p>
+
+            <div class="three-cards-container">
+                <div class="card-item">
+                    <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=400&auto=format&fit=crop"
+                        alt="M87*">
+                    <h3>M87* (Messier 87)</h3>
+                    <p>Insoniyat tarixida <mark>birinchi marta surati olingan</mark> ultra-ulkan qora tuynuk (2019-yil).
+                    </p>
+                </div>
+                <div class="card-item">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&auto=format&fit=crop"
+                        alt="Sagittarius A*">
+                    <h3>Sagittarius A*</h3>
+                    <p>Bizning <b>Sut Yo'li galaktikamiz</b> markazida joylashgan ulkan markaziy tuynuk.</p>
+                </div>
+                <div class="card-item">
+                    <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&auto=format&fit=crop"
+                        alt="Cygnus X-1">
+                    <h3>Cygnus X-1</h3>
+                    <p>Ilk bor <i>rentgen nurlari orqali</i> aniqlangan mashhur yulduzli qora tuynuk.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2-TABLE VA FIGUR 2 (2-JOY) -->
+        <div class="section-box">
+            <!-- Figur 2 -->
+            <div class="fig-diamond"></div>
+            <h2 class="section-title" style="text-align: center;">Mashhur Ob'ektlar Koordinatalari (2-Jadval)</h2>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ob'ekt Nomi</th>
+                            <th colspan="2">Joylashuvi va Masofasi</th>
+                            <th>Kashfiyot Yili</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Sagittarius A*</b></td>
+                            <td>Sut Yo'li Markazi</td>
+                            <td><mark>26,000 yorug'lik yili</mark></td>
+                            <td>1974-yil</td>
+                        </tr>
+                        <tr>
+                            <td><b>M87*</b></td>
+                            <td rowspan="2">Tashqi Galaktikalar</td>
+                            <td>53 million yorug'lik yili</td>
+                            <td>2019 (Fotosurat)</td>
+                        </tr>
+                        <tr>
+                            <td><b>TON 618</b></td>
+                            <td>18.2 milliard yorug'lik yili</td>
+                            <td>1957-yil</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><b>Eng Yaqin Qora Tuynuk:</b> Gaia BH1</td>
+                            <td>~1,560 yorug'lik yili</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- RO'YHATLAR SECTION VA FIGUR 3 -->
+        <div class="section-box">
+            <!-- Figur 3 -->
+            <!-- <div class="fig-triangle"></div> -->
+             <div style="width: 35px; height: 35px; border: 2px solid #00f0ff; rotate: 45deg; margin: 15px auto;"></div>
+            <h2 class="section-title">Qora Tuynuklar Haqida Nazariy Faktlar (Ichki Ro'yhatlar)</h2>
+
+            <p><b>1. Raqamli Ro'yhat (Fizikaviy xususiyatlar):</b></p>
+            <ol>
+                <li>Tuzilish qismlari:
+                    <ul>
+                        <li><u>Singulyarlik</u> - markaziy cheksiz zichlik</li>
+                        <li><u>Voqealar Ufqi</u> - tortishish chegarasi</li>
+                        <li><u>Akkretsion Disk</u> - atrofda aylanuvchi issiq gazlar</li>
+                    </ul>
+                </li>
+                <li>Nurlanish va Hodisalar:
+                    <ul>
+                        <li><i>Xoking Nurlanishi</i> (Hawking Radiation)</li>
+                        <li><i>Spagettifikatsiya</i> (Gravitatsion cho'zilish)</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <br>
+
+            <p><b>2. Raqamsiz Ro'yhat (Tadqiqot usullari):</b></p>
+            <ul>
+                <li><b>Ochish Usullari:</b>
+                    <ol>
+                        <li>Rentgen teleskoplari orqali</li>
+                        <li>Gravitatsion tolqinlar (LIGO) orqali</li>
+                        <li>Atrofdagi yulduzlar harakatidan</li>
+                    </ol>
+                </li>
+                <li><b>Xalqaro Loyihalar:</b>
+                    <ul>
+                        <li><mark>Event Horizon Telescope (EHT)</mark></li>
+                        <li>James Webb Kosmik Teleskopi</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>&copy; 2026 Qora Tuynuklar Web Sahifasi. Barcha talab qilingan elementlar qo'llanildi.</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
